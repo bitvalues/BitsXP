@@ -1,7 +1,8 @@
 -- external dependencies
-config = require('config')
+local config = require('config')
 
 -- internal dependencies
+require('states')
 require('settings')
 require('commands')
 require('utilities')
@@ -13,7 +14,7 @@ _addon.version = 2.0
 _addon.command = 'bxp2'
 
 -- load the settings
-settings = config.load('data\\settings.xml', defaultSettings)
+local settings = config.load('data\\settings.xml', defaultSettings)
 config.register(settings, initializeSettings)
 
 -- debugging for now
