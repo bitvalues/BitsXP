@@ -1,5 +1,6 @@
 -- external dependencies
-local config = require('config')
+config = require('config')
+packets = require('packets')
 
 -- internal dependencies
 require('states')
@@ -14,11 +15,12 @@ _addon.version = 2.0
 _addon.command = 'bxp2'
 
 -- load the settings
-local settings = config.load('data\\settings.xml', defaultSettings)
+settings = config.load('data\\settings.xml', defaultSettings)
 config.register(settings, initializeSettings)
 
 -- debugging for now
 addonPrint(yellow("Now tracking your experience!") .. darkRed(""))
 
 -- initial setup
-windower.register_event('addon command', processCommands)
+startStateMachine()
+setupCommands()

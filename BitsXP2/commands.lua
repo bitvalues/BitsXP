@@ -1,3 +1,7 @@
+function setupCommands()
+  windower.register_event('addon command', processCommands)
+end
+
 function processCommands(...)
   local commands = {...}
   local firstCommand = commands[1]
